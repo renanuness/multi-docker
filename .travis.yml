@@ -16,7 +16,7 @@ after_success:
 
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
-  - docker push renanuness/multi-client
-  - docker push renanuness/multi-nginx
-  - docker push renanuness/multi-server
-  - docker push renanuness/multi-worker
+  - docker push renanuness/multi-client ./client
+  - docker push renanuness/multi-nginx ./nginx
+  - docker push renanuness/multi-server ./server
+  - docker push renanuness/multi-worker ./worker
