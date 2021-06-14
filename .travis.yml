@@ -20,3 +20,4 @@ after_success:
   - docker push renanuness/multi-nginx
   - docker push renanuness/multi-server
   - docker push renanuness/multi-worker
+  
