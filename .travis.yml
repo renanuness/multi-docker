@@ -3,10 +3,10 @@ sudo: required
 services:
   - docker
 
-  before_install:
+before_install:
     - docker build -t renanuness/react-test -f ./client/Dockerfile.dev ./client
 
-  script:
+script:
   - docker run -e CI=true renanuness/react-test npm test
 
 after_success:
