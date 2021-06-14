@@ -1,0 +1,22 @@
+sudo: required
+services:
+  - docker
+
+  before_install:
+    - docker build -t renanuness/react-test -f ./client/Dockerfile.dev ./client
+
+  script:
+  - docker run -e CI=true renanuness/react-test npm test
+
+after_success:
+  - docker build -t renanuness/multi-client ./client
+  - docker build -t renanuness/multi-nginx ./nginx
+  - docker build -t renanuness/multi-server ./server
+  - docker build -t renanuness/multi-worker ./worker
+
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
+  - docker push renanuness/multi-client
+  - docker push renanuness/multi-nginx
+  - docker push renanuness/multi-server
+  - docker push renanuness/multi-worker
