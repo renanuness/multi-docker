@@ -1,0 +1,22 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions":[
+        {
+            "name":"client",
+            "image":"renanuness/multi-client",
+            "hostname": "client"
+        },
+        {
+            "name":"client",
+            "image":"renanuness/multi-client"
+        },
+        {
+            "name":"client",
+            "image":"renanuness/multi-client"
+        },
+        {
+            "name":"client",
+            "image":"renanuness/multi-client"
+        },
+    ]
+}
